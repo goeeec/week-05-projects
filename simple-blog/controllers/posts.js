@@ -5,6 +5,7 @@ const PostsController = {
   registerRouter() {
     const router = express.Router();
 
+    // adding route handlers
     router.get('/', this.index);
     router.post('/', this.create);
 
@@ -13,6 +14,8 @@ const PostsController = {
   index(req, res) {
     models.Posts.findAll()
       .then((posts) => {
+        console.log(posts);
+        // render using the posts view with the data: posts
         res.render('posts', { posts });
       });
   },
